@@ -7,32 +7,41 @@
 #include "process.h"
 #include "processor.h"
 #include "system.h"
+#include "linux_parser.h"
+#include "format.h"
 
 using std::set;
 using std::size_t;
 using std::string;
 using std::vector;
 
-// TODO: Return the system's CPU
+// System's CPU
 Processor& System::Cpu() { return cpu_; }
 
-// TODO: Return a container composed of the system's processes
-vector<Process>& System::Processes() { return processes_; }
+// System's processes as a vector
+vector<Process>& System::Processes() {
+    const vector<int>& pids = LinuxParser::Pids();
+    for (int i : pids) {
+        Process process(i);
+        processes_.push_back(process);
+    }
+    return processes_; 
+}
 
-// TODO: Return the system's kernel identifier (string)
-std::string System::Kernel() { return string(); }
+// System's kernel identifier
+std::string System::Kernel() const { return LinuxParser::Kernel(); }
 
-// TODO: Return the system's memory utilization
-float System::MemoryUtilization() { return 0.0; }
+// System's memory utilization
+float System::MemoryUtilization() const { return LinuxParser::MemoryUtilization(); }
 
-// TODO: Return the operating system name
-std::string System::OperatingSystem() { return string(); }
+// Operating system name
+std::string System::OperatingSystem() const { return LinuxParser::OperatingSystem(); }
 
-// TODO: Return the number of processes actively running on the system
-int System::RunningProcesses() { return 0; }
+// Number of processes actively running on the system
+int System::RunningProcesses() const { return LinuxParser::RunningProcesses(); }
 
-// TODO: Return the total number of processes on the system
-int System::TotalProcesses() { return 0; }
+// Total number of processes on the system
+int System::TotalProcesses() const { return LinuxParser::TotalProcesses(); }
 
-// TODO: Return the number of seconds since the system started running
-long int System::UpTime() { return 0; }
+// Number of seconds since the system started running
+long int System::UpTime() const { return LinuxParser::UpTime(); }
