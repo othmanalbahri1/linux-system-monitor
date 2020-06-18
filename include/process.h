@@ -2,6 +2,7 @@
 #define PROCESS_H
 
 #include <string>
+
 #include "linux_parser.h"
 /*
 Basic class for Process representation

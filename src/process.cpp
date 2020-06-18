@@ -1,10 +1,12 @@
+#include "process.h"
+
 #include <unistd.h>
+
 #include <cctype>
 #include <sstream>
 #include <string>
 #include <vector>
 
-#include "process.h"
 #include "linux_parser.h"
 
 using std::string;
@@ -13,12 +15,12 @@ using std::vector;
 
 // Constructor
 Process::Process(int pid) {
-    pid_ = pid;
-    cpuUtilization_ = LinuxParser::CpuUtilization(pid_);
-    command_ = LinuxParser::Command(pid_);
-    ram_ = LinuxParser::Ram(pid_);
-    user_ = LinuxParser::User(pid_);
-    uptime_ = LinuxParser::UpTime(pid_);
+  pid_ = pid;
+  cpuUtilization_ = LinuxParser::CpuUtilization(pid_);
+  command_ = LinuxParser::Command(pid_);
+  ram_ = LinuxParser::Ram(pid_);
+  user_ = LinuxParser::User(pid_);
+  uptime_ = LinuxParser::UpTime(pid_);
 }
 
 // TODO: Return this process's ID
@@ -40,7 +42,8 @@ string Process::User() const { return user_; }
 long int Process::UpTime() const { return uptime_; }
 
 // Overload "less than" comparison operator for Process objects
-//bool Process::operator<(Process const& a[[maybe_unused]]) const { return true; }
+// bool Process::operator<(Process const& a[[maybe_unused]]) const { return
+// true; }
 bool Process::operator<(Process const& a) const {
-    return a.CpuUtilization() > this->cpuUtilization_;
+  return a.CpuUtilization() > this->cpuUtilization_;
 }

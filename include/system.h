@@ -7,7 +7,6 @@
 #include "process.h"
 #include "processor.h"
 
-
 class System {
  public:
   Processor& Cpu();
