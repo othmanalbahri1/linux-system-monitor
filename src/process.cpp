@@ -45,5 +45,5 @@ long int Process::UpTime() const { return uptime_; }
 // bool Process::operator<(Process const& a[[maybe_unused]]) const { return
 // true; }
 bool Process::operator<(Process const& a) const {
-  return a.CpuUtilization() > this->cpuUtilization_;
+  return a.CpuUtilization() < this->cpuUtilization_;
 }
