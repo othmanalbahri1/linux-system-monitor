@@ -1,6 +1,6 @@
 # CppND-System-Monitor
 
-Solution code for System Monitor Project in the Object Oriented Programming Course of the [Udacity C++ Nanodegree Program](https://www.udacity.com/course/c-plus-plus-nanodegree--nd213). 
+This is my solution code for the [System Monitor Project](https://github.com/udacity/CppND-System-Monitor) as part of the Object Oriented Programming course of the [Udacity C++ Nanodegree Program](https://www.udacity.com/course/c-plus-plus-nanodegree--nd213). 
 
 ![System Monitor](images/monitor.png)
 
@@ -24,3 +24,7 @@ This project uses [Make](https://www.gnu.org/software/make/). The Makefile has f
 
 3. Run the resulting executable: `./build/monitor`
 ![Starting System Monitor](images/starting_monitor.png)
+
+# More details
+
+Please refer to the [project's original repository](https://github.com/udacity/CppND-System-Monitor)
